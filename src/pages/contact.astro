@@ -1,0 +1,103 @@
+---
+// src/pages/Contact.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/NavBar.astro';
+---
+
+<Layout title="Contact">
+  <Navbar />
+  <main>
+    <div class="contact-content">
+      <h1>Contact</h1>
+      
+      <div class="contact-section">
+        <h2>Alexander Bloom</h2>
+        <p class="title">Co-Founder, CEO</p>
+        <p>alexanderbloom@waytrack.co.uk</p>
+        <p>+447485619856</p>
+      </div>
+
+      <div class="contact-section">
+        <h2>Aron Finkelstein</h2>
+        <p class="title">Co-Founder, President</p>
+        <p>aronfinkelstein@waytrack.co.uk</p>
+        <p>+447703576283</p>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #f2e8d5;
+    min-height: 100vh;
+  }
+
+  main {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f2e8d5;
+    padding-top: calc(80px + 4rem);
+    padding-bottom: 4rem;
+    font-family: "Baskerville", "Times New Roman", serif;
+  }
+
+  .contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: normal;
+    margin-bottom: 4rem;
+    color: #2c1810;
+  }
+
+  .contact-section {
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #2c1810;
+  }
+
+  .title {
+    font-size: 1.4rem;
+    font-style: normal;
+    margin-bottom: 1rem;
+    color: #2c1810;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 0.3rem;
+    color: #2c1810;
+  }
+
+  .address {
+    margin-top: 4rem;
+  }
+
+  @media (max-width: 768px) {
+    .contact-content {
+      padding: 0 1.5rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
