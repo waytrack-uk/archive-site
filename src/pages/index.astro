@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/NavBar.astro';
 import HeroSection from '../components/HeroSection.astro';
+import ScrollButton from '../components/ScrollButton.astro';
 ---
 
 <Layout title="Home">
@@ -10,30 +11,47 @@ import HeroSection from '../components/HeroSection.astro';
     <div class="hero-container">
       <HeroSection />
     </div>
+    <ScrollButton />
+    <section id="about" class="min-h-screen">
+    </section>
   </main>
 </Layout>
 
 <style>
+  :global(*) {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.3) #f2e8d5;
+  }
+
+  :global(*::-webkit-scrollbar) {
+    width: 12px;
+  }
+
+  :global(*::-webkit-scrollbar-track) {
+    background: #f2e8d5;
+  }
+
+  :global(*::-webkit-scrollbar-thumb) {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    border: 3px solid #f2e8d5;
+  }
+
   html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100vh;
-    overflow: hidden; /* Prevents scrolling */
     background-color: #f2e8d5;
   }
 
   main {
-    height: 100vh;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .hero-container {
+    height: 100vh;
     width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
