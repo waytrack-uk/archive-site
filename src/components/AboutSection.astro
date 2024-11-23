@@ -1,96 +1,49 @@
-<!-- src/components/AboutSection.astro -->
 ---
 ---
 
-<section id="about" class="about-section">
-  <div class="about-content">
-    <h2>About Us</h2>
-    <p>Welcome to our world! We are passionate about creating amazing experiences and delivering exceptional value to our customers.</p>
-    
-    <div class="about-grid">
-      <div class="about-card">
-        <h3>Our Mission</h3>
-        <p>To deliver innovative solutions that make a difference in people's lives.</p>
+<div class="w-full h-screen relative" style="z-index: 0;">
+  <div class="absolute inset-0 flex bg-[#f2e8d5]" id="slider">
+    <div class="w-full h-full flex-none flex items-center justify-center px-16">
+      <div class="max-w-2xl text-center">
+        <h2 class="text-4xl font-bold mb-6">About Us</h2>
+        <p class="text-lg">Your content for page 1 here</p>
       </div>
-      
-      <div class="about-card">
-        <h3>Our Vision</h3>
-        <p>To become the leading force in transformative digital experiences.</p>
-      </div>
-      
-      <div class="about-card">
-        <h3>Our Values</h3>
-        <p>Integrity, innovation, and dedication to excellence guide everything we do.</p>
+      <button id="nextBtn" class="absolute right-8 top-1/2 -translate-y-1/2">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="32" 
+          height="32" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="2" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          class="text-gray-600 hover:text-gray-800 transition-colors"
+        >
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <div class="w-full h-full flex-none flex items-center justify-center px-16">
+      <div class="max-w-2xl text-center">
+        <h2 class="text-4xl font-bold mb-6">Our Mission</h2>
+        <p class="text-lg">Your content for page 2 here</p>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<style>
-  .about-section {
-    min-height: 100vh;
-    width: 100%;
-    background-color: #f2e8d5;
-    padding: 4rem 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+<script>
+  let currentPage = 0;
+  const slider = document.getElementById('slider');
+  const nextBtn = document.getElementById('nextBtn');
 
-  .about-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  p {
-    font-family: 'Baskerville', serif;
-
-  }
-
-  h2 {
-    font-family: 'Baskerville', serif;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #333;
-  }
-
-  h3 {
-    font-family: 'Baskerville', serif;
-
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-
-  .about-card {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-  }
-
-  .about-card:hover {
-    transform: translateY(-5px);
-  }
-
-  .about-card h3 {
-    color: #333;
-    margin-bottom: 1rem;
-  }
-
-  @media (max-width: 768px) {
-    .about-section {
-      padding: 3rem 1rem;
+  nextBtn?.addEventListener('click', () => {
+    if (currentPage === 0) {
+      currentPage = 1;
+      slider.style.transform = 'translateX(-100%)';
     }
-    
-    h2 {
-        font-family: 'Baskerville', serif;
-        font-size: 2rem;
-    }
-  }
-</style>
+  });
+</script>

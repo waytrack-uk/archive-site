@@ -1,5 +1,4 @@
 ---
-// ScrollButton.astro
 ---
 
 <button 
@@ -65,21 +64,23 @@
     const button = document.getElementById('scroll-button');
     const aboutSection = document.getElementById('about');
 
-    // Show button after hero animations complete (3.5s)
     setTimeout(() => {
       button?.classList.add('visible');
-    }, 3500);
+    }, 2500);
 
     button?.addEventListener('click', () => {
-      // Hide button
       button.classList.remove('visible');
       button.classList.add('hidden');
       
-      // Scroll to about section
-      aboutSection?.scrollIntoView({ behavior: 'smooth' });
+      if (aboutSection) {
+        const offset = aboutSection.offsetTop;
+        window.scrollTo({
+          top: offset,
+          behavior: 'smooth'
+        });
+      }
     });
 
-    // Hide button when scrolling to about section
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && button) {

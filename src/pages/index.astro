@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/NavBar.astro';
 import HeroSection from '../components/HeroSection.astro';
 import ScrollButton from '../components/ScrollButton.astro';
+import AboutSection from '../components/AboutSection.astro';
 ---
 
 <Layout title="Home">
@@ -13,6 +14,7 @@ import ScrollButton from '../components/ScrollButton.astro';
     </div>
     <ScrollButton />
     <section id="about" class="min-h-screen">
+      <AboutSection />
     </section>
   </main>
 </Layout>
@@ -43,6 +45,7 @@ import ScrollButton from '../components/ScrollButton.astro';
     width: 100%;
     height: 100vh;
     background-color: #f2e8d5;
+    scroll-behavior: smooth;
   }
 
   main {
