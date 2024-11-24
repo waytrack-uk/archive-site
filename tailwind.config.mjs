@@ -10,15 +10,6 @@ export default {
             fontFamily: {
                 'baskerville': ['Baskerville', 'serif'],
             },
-            keyframes: {
-                blink: {
-                    '0%, 45%': { opacity: '1' },
-                    '46%, 100%': { opacity: '0' }
-                }
-            },
-            animation: {
-                'blink': 'blink 1s infinite'
-            }
         },
   },
   plugins: [],

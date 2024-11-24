@@ -4,35 +4,35 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Contact">
-    <main class="h-screen w-full flex justify-center items-center -mt-[50px]">
-        <div class="w-full h-full flex justify-center items-center">
-            <div class="max-w-[800px] mx-auto px-8 md:px-4 font-baskerville">
-                <div class="mb-12">
-                    <h2 class="text-[2.2rem] md:text-4xl font-bold mb-2 text-text-primary">
+    <main class="min-h-screen w-full flex justify-start sm:justify-center items-start sm:items-center px-4 sm:px-8">
+        <div class="w-full flex justify-center items-start sm:items-center pt-24 sm:pt-0 sm:-mt-[50px]">
+            <div class="w-full max-w-[800px] font-baskerville">
+                <div class="mb-8 sm:mb-12">
+                    <h2 class="text-2xl sm:text-[2.2rem] md:text-4xl font-bold mb-1 sm:mb-2 text-text-primary">
                         Alexander Bloom
                     </h2>
-                    <p class="text-[1.4rem] mb-4 text-text-primary">
+                    <p class="text-lg sm:text-[1.4rem] mb-3 sm:mb-4 text-text-primary">
                         Founder, CEO
                     </p>
-                    <p class="text-xl leading-relaxed mb-1 text-text-primary">
+                    <p class="text-base sm:text-xl leading-relaxed mb-1 text-text-primary break-words">
                         alexanderbloom@waytrack.co.uk
                     </p>
-                    <p class="text-xl leading-relaxed mb-1 text-text-primary">
+                    <p class="text-base sm:text-xl leading-relaxed mb-1 text-text-primary">
                         +447485619856
                     </p>
                 </div>
 
-                <div class="mb-12">
-                    <h2 class="text-[2.2rem] md:text-4xl font-bold mb-2 text-text-primary">
+                <div class="mb-8 sm:mb-12">
+                    <h2 class="text-2xl sm:text-[2.2rem] md:text-4xl font-bold mb-1 sm:mb-2 text-text-primary">
                         Aron Finkelstein
                     </h2>
-                    <p class="text-[1.4rem] mb-4 text-text-primary">
+                    <p class="text-lg sm:text-[1.4rem] mb-3 sm:mb-4 text-text-primary">
                         Creative Director
                     </p>
-                    <p class="text-xl leading-relaxed mb-1 text-text-primary">
+                    <p class="text-base sm:text-xl leading-relaxed mb-1 text-text-primary break-words">
                         aronfinkelstein@waytrack.co.uk
                     </p>
-                    <p class="text-xl leading-relaxed mb-1 text-text-primary">
+                    <p class="text-base sm:text-xl leading-relaxed mb-1 text-text-primary">
                         +447703576283
                     </p>
                 </div>
@@ -40,9 +40,3 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </main>
 </Layout>
-
-<style is:global>
-    html, body {
-      @apply m-0 p-0 w-full h-screen overflow-hidden bg-page-bg;
-    }
-</style>
