@@ -1,0 +1,53 @@
+---
+// src/components/AnimatedTitle.astro
+const text = "Archive";
+const typingSpeed = 150;
+---
+
+<div class="text-center w-full">
+    <div class="font-['Baskerville',_serif] text-9xl inline-flex relative transition-all duration-200 min-w-[20px]">
+        <div class="inline-block transition-[width] duration-200">
+            {text.split("").map((letter) => (
+                <span class="hidden letter">{letter}</span>
+            ))}
+        </div>
+        <span class="cursor absolute w-[2px] h-28 bg-black right-[-4px] top-1/2 -translate-y-1/2 animate-blink"></span>
+    </div>
+</div>
+
+<style>
+    .letter.visible {
+        display: inline-block;
+    }
+
+    .cursor.hidden {
+        display: none;
+    }
+
+    @keyframes blink {
+        0%, 45% {
+            opacity: 1;
+        }
+        46%, 100% {
+            opacity: 0;
+        }
+    }
+</style>
+
+<script define:vars={{ typingSpeed }}>
+    document.addEventListener("DOMContentLoaded", () => {
+        const letters = document.querySelectorAll('.letter');
+        const cursor = document.querySelector('.cursor');
+        const totalTypingTime = letters.length * typingSpeed;
+        
+        letters.forEach((letter, index) => {
+            setTimeout(() => {
+            letter.classList.add('visible');
+            }, index * typingSpeed);
+        });
+
+        setTimeout(() => {
+            cursor.classList.add('hidden');
+        }, totalTypingTime + 500);
+    });
+</script>

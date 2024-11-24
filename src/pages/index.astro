@@ -1,41 +1,27 @@
 ---
+// src/pages/index.astro
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/NavBar.astro';
-import HeroSection from '../components/HeroSection.astro';
+import Hero from '../components/Hero.astro';
 ---
 
 <Layout title="Home">
-  <Navbar />
-  <main>
-    <div class="hero-container">
-      <HeroSection />
-    </div>
-  </main>
+    <main class="h-screen w-full flex justify-center items-center">
+        <div class="w-full h-full flex justify-center items-center">
+            <Hero />
+        </div>
+    </main>
+    <footer class="fixed bottom-0 left-0 w-full p-4 text-center font-baskerville">
+        <a 
+            href="/privacy" 
+            class="text-text-primary/70 hover:text-text-primary text-sm transition-colors"
+        >
+            Privacy Policy
+        </a>
+    </footer>
 </Layout>
 
-<style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden; /* Prevents scrolling */
-    background-color: #f2e8d5;
-  }
-
-  main {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .hero-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+<style is:global>
+    html, body {
+      @apply m-0 p-0 w-full h-screen overflow-hidden bg-page-bg;
+    }
 </style>
