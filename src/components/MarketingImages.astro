@@ -1,0 +1,93 @@
+---
+// src/components/MarketingImages.astro
+---
+
+<section class="w-full px-4 sm:px-6 py-16">
+    <div class="max-w-5xl mx-auto space-y-16">
+        <!-- One App Section -->
+        <div class="opacity-0 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="relative max-w-[300px] mx-auto">
+                <img 
+                    src="/oneapp.png" 
+                    alt="One App for Films, Music, Podcasts, Books" 
+                    class="w-full h-auto object-cover rounded-[40px]"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-[40px]"></div>
+            </div>
+            <div class="space-y-4 font-['Baskerville',_'Times_New_Roman',_serif]">
+                <h3 class="text-5xl font-bold leading-tight">One App. <br/> One Archive.</h3>
+                <p class="text-gray-600 text-2xl">Keep all of your media in one place, and build an Archive of what's important to you.</p>
+            </div>
+        </div>
+        <!--  Connect Record Section -->
+        <div class="opacity-0 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="space-y-4 font-['Baskerville',_'Times_New_Roman',_serif]">
+                <h3 class="text-5xl font-bold">Connect, Record, Discover.</h3>
+                <p class="text-gray-600 text-2xl">From podcasts to movies, Archive is there to help you be curious.</p>
+            </div>
+            <div class="relative max-w-[300px] mx-auto">
+                <img 
+                    src="/connectrecord.png" 
+                    alt="One App for Films, Music, Podcasts, Books" 
+                    class="w-full h-auto object-cover rounded-[40px]"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-[40px]"></div>
+            </div>
+        </div>
+        <!--  Real Media Section -->
+        <div class="opacity-0 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="relative max-w-[300px] mx-auto">
+                <img 
+                    src="/realmedia.png" 
+                    alt="One App for Films, Music, Podcasts, Books" 
+                    class="w-full h-auto object-cover rounded-[40px]"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-[40px]"></div>
+            </div>
+            <div class="space-y-4 font-['Baskerville',_'Times_New_Roman',_serif]">
+                <h3 class="text-5xl font-bold leading-tight">Real Media, <br/> Real Stories.</h3>
+                <p class="text-gray-600 text-2xl">Stay inspired, and focus on the media that makes you happy.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .reveal {
+        animation: fadeIn 2s ease forwards;
+    }
+</style>
+
+<script>
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('.opacity-0').forEach(element => {
+        observer.observe(element);
+    });
+</script> 
