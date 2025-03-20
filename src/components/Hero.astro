@@ -47,13 +47,14 @@
   </div>
   
   <!-- Scroll indicator -->
-  <div class="absolute bottom-16 left-0 right-0 flex justify-center opacity-0 animate-[fadeIn_1s_ease_forwards_1.3s]">
+  <div class="absolute bottom-8 md:bottom-16 left-0 right-0 flex justify-center opacity-0 animate-[fadeIn_1s_ease_forwards_1.3s]">
     <button 
       id="scrollToMarketingBtn"
       class="flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity"
       aria-label="Scroll to learn more"
     >
-      <span class="font-serif text-lg" style="font-family: Baskerville, serif;">Learn More</span>
+      <span class="font-serif text-lg md:block hidden" style="font-family: Baskerville, serif;">Learn More</span>
+      <span class="font-serif text-lg md:hidden block" style="font-family: Baskerville, serif;">Scroll for more</span>
       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="custom-bounce -mt-2">
         <path d="M7 13l5 5 5-5"></path>
       </svg>
