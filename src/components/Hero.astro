@@ -2,17 +2,30 @@
 // src/components/Hero.astro
 ---
 
-<section class="min-h-screen w-full flex justify-center items-center -mt-[120px] md:-mt-[80px] px-4 sm:px-6">
-  <div class="flex flex-col items-center relative">
+<section class="min-h-screen w-full flex justify-center items-center -mt-[120px] md:-mt-[80px] px-4 sm:px-6 relative">
+  <div class="flex flex-col md:flex-row md:items-center items-center relative max-w-6xl w-full mx-auto">
+    <!-- New image column -->
+    <div class="hidden md:block md:w-1/2 pr-8 opacity-0 animate-[fadeIn_1s_ease_forwards_0.3s]">
+      <div class="relative max-w-[450px]">
+        <img 
+          src="/connectrecord.png" 
+          alt="Connect, Record, Discover" 
+          class="w-full h-auto object-cover"
+        />
+      </div>
+    </div>
+    
+    <!-- Existing hero content - adjusted to be centered vertically -->
+    <div class="md:w-1/2 flex flex-col items-center md:items-start justify-center">
       <div 
-          class="font-serif text-7xl md:text-9xl text-center opacity-0 animate-[fadeIn_1s_ease_forwards]"
+          class="font-serif text-7xl md:text-9xl text-center md:text-left opacity-0 animate-[fadeIn_1s_ease_forwards]"
           style="font-family: Baskerville, serif;"
       >
           Archive.
       </div>
       <div class="h-3 sm:h-4"></div>
       <p 
-          class="font-serif text-2xl md:text-3xl text-[#666666] m-0 text-center opacity-0 animate-[fadeIn_1s_ease_forwards_0.5s]"
+          class="font-serif text-2xl md:text-3xl text-[#666666] m-0 text-center md:text-left opacity-0 animate-[fadeIn_1s_ease_forwards_0.5s]"
           style="font-family: Baskerville, serif;"
       >
           Be Curious.
@@ -30,17 +43,69 @@
           </svg>
           Download on the App Store
       </a>
+    </div>
+  </div>
+  
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-16 left-0 right-0 flex justify-center opacity-0 animate-[fadeIn_1s_ease_forwards_1.3s]">
+    <button 
+      id="scrollToMarketingBtn"
+      class="flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity"
+      aria-label="Scroll to learn more"
+    >
+      <span class="font-serif text-lg" style="font-family: Baskerville, serif;">Learn More</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="custom-bounce -mt-2">
+        <path d="M7 13l5 5 5-5"></path>
+      </svg>
+    </button>
   </div>
 </section>
+
 <style>
   @keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+
+  @keyframes slowBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(6px);
+    }
   }
+
+  .custom-bounce {
+    animation: slowBounce 2s ease-in-out infinite;
   }
 </style>
+
+<script>
+  document.getElementById('scrollToMarketingBtn')?.addEventListener('click', () => {
+    const marketingSection = document.querySelector('section:nth-of-type(2)');
+    if (marketingSection) {
+      // Check if we're on mobile
+      const isMobile = window.innerWidth < 768; // 768px is the md breakpoint in Tailwind
+      
+      if (isMobile) {
+        // For mobile, scroll to a position very close to the marketing section
+        const offset = 20; // Very small offset to scroll almost to the section top
+        const sectionTop = marketingSection.getBoundingClientRect().top + window.pageYOffset;
+        window.scrollTo({
+          top: sectionTop - offset,
+          behavior: 'smooth'
+        });
+      } else {
+        // For desktop, scroll normally to the section
+        marketingSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+</script>
